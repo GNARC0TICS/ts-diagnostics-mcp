@@ -222,11 +222,11 @@ For complex setups, specify configs manually:
 - ✅ **Rush** (via `rush.json`)
 - ✅ **Lerna** (via `lerna.json`)
 
-### Example: Degentalk-BETA Monorepo
+### Example: Monorepo Structure
 
 ```bash
 # Project structure
-Degentalk-BETA/
+my-monorepo/
 ├── packages/
 │   ├── app/tsconfig.json
 │   ├── server/tsconfig.json
@@ -236,22 +236,22 @@ Degentalk-BETA/
 └── tsconfig.base.json
 
 # Auto-detected configs:
-# - @degentalk/app
-# - @degentalk/server
-# - @degentalk/db
-# - @degentalk/shared
+# - @myapp/app
+# - @myapp/server
+# - @myapp/db
+# - @myapp/shared
 ```
 
 Agents can query specific packages:
 
 ```
 Tool: get_package_diagnostics
-Args: { "packageName": "@degentalk/server" }
+Args: { "packageName": "@myapp/server" }
 ```
 
 ## Performance Benchmarks
 
-**Scenario**: 4 AI agents working on Degentalk-BETA (TypeScript monorepo)
+**Scenario**: 4 AI agents working on a TypeScript monorepo
 
 | Method | Time | CPU Usage | Result |
 |--------|------|-----------|--------|
@@ -313,16 +313,16 @@ pnpm dev
 pnpm typecheck
 ```
 
-## Testing with Degentalk-BETA
+## Testing Locally
 
 ```bash
 # Build the MCP server
 cd ts-diagnostics-mcp
-pnpm install
-pnpm build
+npm install
+npm run build
 
-# Run directly
-node dist/index.js /home/developer/Degentalk-BETA
+# Run directly with your project
+node dist/index.js /path/to/your/typescript/project
 ```
 
 ## Troubleshooting

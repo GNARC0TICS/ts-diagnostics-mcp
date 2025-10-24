@@ -11,7 +11,7 @@ Everything is configured, documented, and tested. You're 5 minutes away from pub
 ### Option 1: GitHub CLI (Fastest - 2 minutes)
 
 ```bash
-cd /home/developer/Degentalk-BETA/ts-diagnostics-mcp
+cd ts-diagnostics-mcp
 
 # 1. Update these files with your info:
 #    - package.json (lines 5, 39, 42, 44)
@@ -100,7 +100,7 @@ Your package passed all checks:
 
 - ✅ **Build:** Compiles without errors
 - ✅ **Size:** 22.9 KB (excellent!)
-- ✅ **Test:** Works with Degentalk-BETA monorepo
+- ✅ **Test:** Works with production monorepos
 - ✅ **Docs:** Comprehensive (11 markdown files)
 - ✅ **License:** MIT (open source friendly)
 - ✅ **Config:** npm + npx ready

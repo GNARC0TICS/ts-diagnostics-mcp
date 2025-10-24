@@ -41,7 +41,7 @@ Also update `CHANGELOG.md`:
 ### Option A: Using GitHub CLI (Recommended)
 
 ```bash
-cd /home/developer/Degentalk-BETA/ts-diagnostics-mcp
+cd ts-diagnostics-mcp
 
 # Initialize git (if not already done)
 git init
@@ -70,7 +70,7 @@ gh repo create ts-diagnostics-mcp --public --source=. --description="TypeScript 
 Then push:
 
 ```bash
-cd /home/developer/Degentalk-BETA/ts-diagnostics-mcp
+cd ts-diagnostics-mcp
 
 git init
 git add .
@@ -93,7 +93,7 @@ npm run build
 ls -la dist/
 
 # Test locally
-node dist/index.js /home/developer/Degentalk-BETA
+node dist/index.js /path/to/test/project
 # Press Ctrl+C after confirming it starts without errors
 ```
 

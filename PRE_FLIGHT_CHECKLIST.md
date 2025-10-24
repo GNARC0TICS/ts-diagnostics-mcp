@@ -62,8 +62,8 @@ Complete this checklist before publishing to GitHub and npm.
 ## ✅ Testing
 
 - [x] MCP server starts without errors
-- [x] Auto-detects Degentalk-BETA monorepo correctly
-- [x] Finds all 4 packages (@degentalk/app, server, db, shared)
+- [x] Auto-detects monorepos correctly
+- [x] Finds all workspace packages
 - [x] TypeScript watch mode activates
 - [ ] Test with a different TypeScript project (optional but recommended)
 - [ ] Test via npx: `npx ./ts-diagnostics-mcp@latest /test/path` (after publishing)

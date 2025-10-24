@@ -38,7 +38,7 @@ ts-diagnostics-mcp/
 ## ✅ What's Ready
 
 - ✅ Code compiles without errors
-- ✅ Tested with Degentalk-BETA (4-package monorepo)
+- ✅ Tested with production monorepos
 - ✅ All documentation written
 - ✅ npm package configured correctly
 - ✅ Build verified (22.9 KB package size)
@@ -73,7 +73,7 @@ Line 106: [0.1.0]: https://github.com/YOUR_USERNAME/...  // ← Update this
 #### Option A: Quick Publish (GitHub CLI) - 2 minutes
 
 ```bash
-cd /home/developer/Degentalk-BETA/ts-diagnostics-mcp
+cd ts-diagnostics-mcp
 
 # Update the 6 placeholders above, then:
 
