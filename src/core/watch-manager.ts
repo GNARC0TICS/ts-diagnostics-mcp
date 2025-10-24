@@ -13,6 +13,7 @@ import type {
 } from '../types/index.js';
 import { convertDiagnostic } from '../types/index.js';
 import { DiagnosticCache } from '../utils/cache.js';
+import { shouldIgnoreFile } from '../utils/ignore.js';
 
 /**
  * Manages TypeScript watch programs for one or more projects
@@ -24,11 +25,13 @@ export class TypeScriptWatchManager extends EventEmitter {
   private isActive = false;
   private lastCompilation?: number;
   private configs: TSProjectConfig[];
+  private ignorePatterns: string[];
 
-  constructor(configs: TSProjectConfig[], cacheSizeMB = 100) {
+  constructor(configs: TSProjectConfig[], cacheSizeMB = 100, ignorePatterns: string[] = []) {
     super();
     this.configs = configs;
     this.cache = new DiagnosticCache(cacheSizeMB);
+    this.ignorePatterns = ignorePatterns;
   }
 
   /**
@@ -98,6 +101,11 @@ export class TypeScriptWatchManager extends EventEmitter {
     if (!diagnosticMap) return;
 
     const fileName = converted.file;
+
+    // Skip if file should be ignored
+    if (shouldIgnoreFile(fileName, this.ignorePatterns)) {
+      return;
+    }
 
     // Store diagnostic
     if (!diagnosticMap.has(fileName)) {
@@ -177,6 +185,11 @@ export class TypeScriptWatchManager extends EventEmitter {
    * Get diagnostics for a specific file
    */
   getFileDiagnostics(filePath: string): DiagnosticResult {
+    // Check if file should be ignored
+    if (shouldIgnoreFile(filePath, this.ignorePatterns)) {
+      return this.buildDiagnosticResult([], filePath, false);
+    }
+
     const diagnostics: Diagnostic[] = [];
 
     // Check cache first

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Ignore patterns** - Filter files from diagnostics with glob patterns
+  - Default patterns exclude node_modules, dist, build, .git, etc.
+  - Customizable via `ignorePatterns` in `.ts-diagnostics.json`
+  - Prevents watching unnecessary files for better performance
+
 ## [0.1.0] - 2025-10-23
 
 ### Added

@@ -29,5 +29,15 @@
   "enablePersistentCache": false,
 
   "autoDetectWorkspaces": true,
-  "workspacePatterns": ["packages/*", "apps/*"]
+  "workspacePatterns": ["packages/*", "apps/*"],
+
+  "ignorePatterns": [
+    "**/test/**",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/migrations/**",
+    "**/generated/**",
+    "**/__tests__/**",
+    "**/__mocks__/**"
+  ]
 }

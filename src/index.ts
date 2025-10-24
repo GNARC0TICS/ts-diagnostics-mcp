@@ -31,8 +31,17 @@ async function main() {
       console.error(`  - ${cfg.name || 'unknown'}: ${cfg.configPath}`);
     }
 
+    // Log ignore patterns
+    if (config.ignorePatterns && config.ignorePatterns.length > 0) {
+      console.error(`Ignoring ${config.ignorePatterns.length} pattern(s)`);
+    }
+
     // Create watch manager
-    const watchManager = new TypeScriptWatchManager(tsConfigs, config.maxCacheSize);
+    const watchManager = new TypeScriptWatchManager(
+      tsConfigs,
+      config.maxCacheSize,
+      config.ignorePatterns || []
+    );
 
     // Start watching
     watchManager.start();

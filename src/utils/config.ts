@@ -8,6 +8,24 @@ import type { MCPConfig, TSProjectConfig } from '../types/index.js';
 import { detectWorkspace } from './workspace.js';
 
 /**
+ * Default ignore patterns - these are always applied
+ */
+export const DEFAULT_IGNORE_PATTERNS = [
+  '**/node_modules/**',
+  '**/dist/**',
+  '**/build/**',
+  '**/.git/**',
+  '**/coverage/**',
+  '**/.next/**',
+  '**/.turbo/**',
+  '**/.cache/**',
+  '**/out/**',
+  '**/*.min.js',
+  '**/*.bundle.js',
+  '**/.tsbuildinfo',
+];
+
+/**
  * Default configuration
  */
 export const DEFAULT_CONFIG: Partial<MCPConfig> = {
@@ -20,6 +38,7 @@ export const DEFAULT_CONFIG: Partial<MCPConfig> = {
   enableIncrementalMode: true,
   enablePersistentCache: false,
   autoDetectWorkspaces: true,
+  ignorePatterns: DEFAULT_IGNORE_PATTERNS,
 };
 
 /**
@@ -59,6 +78,12 @@ export async function loadConfig(projectRoot: string): Promise<MCPConfig> {
     ...fileConfig,
     ...envConfig,
   };
+
+  // Merge ignore patterns (combine defaults with user-provided)
+  if (fileConfig.ignorePatterns || envConfig.ignorePatterns) {
+    const userPatterns = fileConfig.ignorePatterns || envConfig.ignorePatterns || [];
+    config.ignorePatterns = [...DEFAULT_IGNORE_PATTERNS, ...userPatterns];
+  }
 
   // Auto-detect workspaces if enabled (default is true)
   const shouldAutoDetect = config.autoDetectWorkspaces !== false;

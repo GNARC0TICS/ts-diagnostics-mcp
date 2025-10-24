@@ -177,9 +177,31 @@ Create `.ts-diagnostics.json` in your project root:
   "maxCacheSize": 100,
   "debounceMs": 500,
   "enableIncrementalMode": true,
-  "autoDetectWorkspaces": true
+  "autoDetectWorkspaces": true,
+  "ignorePatterns": [
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/test/**",
+    "**/migrations/**"
+  ]
 }
 ```
+
+**Default Ignore Patterns** (always applied):
+- `**/node_modules/**`
+- `**/dist/**`
+- `**/build/**`
+- `**/.git/**`
+- `**/coverage/**`
+- `**/.next/**`
+- `**/.turbo/**`
+- `**/.cache/**`
+- `**/out/**`
+- `**/*.min.js`
+- `**/*.bundle.js`
+- `**/.tsbuildinfo`
+
+Add your own patterns to exclude additional files from diagnostics.
 
 ### Environment Variables
 

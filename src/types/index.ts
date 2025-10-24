@@ -118,6 +118,9 @@ export interface MCPConfig {
   // Monorepo settings
   autoDetectWorkspaces?: boolean; // Default true
   workspacePatterns?: string[]; // Glob patterns for workspace packages
+
+  // Filtering
+  ignorePatterns?: string[]; // Glob patterns to exclude from diagnostics
 }
 
 /**
