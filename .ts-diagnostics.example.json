@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "TypeScript Diagnostics MCP Configuration",
+
+  "projectRoot": "/path/to/your/project",
+
+  "tsConfigs": [
+    {
+      "configPath": "/path/to/packages/app/tsconfig.json",
+      "name": "@myapp/app",
+      "rootDir": "/path/to/packages/app"
+    },
+    {
+      "configPath": "/path/to/packages/server/tsconfig.json",
+      "name": "@myapp/server",
+      "rootDir": "/path/to/packages/server"
+    }
+  ],
+
+  "maxCacheSize": 100,
+  "debounceMs": 500,
+  "maxConcurrentQueries": 10,
+
+  "healthCheckInterval": 30000,
+  "autoRestartOnCrash": true,
+  "fallbackToDirectTsc": true,
+
+  "enableIncrementalMode": true,
+  "enablePersistentCache": false,
+
+  "autoDetectWorkspaces": true,
+  "workspacePatterns": ["packages/*", "apps/*"]
+}

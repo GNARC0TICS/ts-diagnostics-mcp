@@ -1,0 +1,47 @@
+# Source files (compiled to dist/)
+src/
+tsconfig.json
+
+# Tests
+tests/
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+
+# Development files
+.github/
+.vscode/
+.idea/
+
+# Documentation (keep README.md, LICENSE, CHANGELOG.md, and CONTRIBUTING.md)
+PUBLISHING.md
+GITHUB_SETUP.md
+PRE_FLIGHT_CHECKLIST.md
+README_FOR_PUBLISHER.md
+
+# Build artifacts
+*.tsbuildinfo
+.turbo/
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/

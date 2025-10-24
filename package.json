@@ -1,0 +1,70 @@
+{
+  "name": "ts-diagnostics-mcp",
+  "version": "0.1.0",
+  "description": "TypeScript diagnostics MCP server with monorepo support - live type checking without constant recompilation",
+  "author": "GNARC0TICS",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ts-diagnostics-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".ts-diagnostics.example.json"
+  ],
+  "keywords": [
+    "typescript",
+    "diagnostics",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "type-checking",
+    "monorepo",
+    "watch",
+    "compiler-api",
+    "ai-agents",
+    "llm-tools",
+    "claude",
+    "claude-desktop",
+    "typescript-compiler",
+    "pnpm-workspace",
+    "yarn-workspace"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GNARC0TICS/ts-diagnostics-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GNARC0TICS/ts-diagnostics-mcp/issues"
+  },
+  "homepage": "https://github.com/GNARC0TICS/ts-diagnostics-mcp#readme",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build && npm run typecheck",
+    "test": "echo \"Add tests\" && exit 0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "chokidar": "^3.6.0",
+    "fast-glob": "^3.3.2",
+    "lru-cache": "^10.4.3",
+    "typescript": "^5.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
